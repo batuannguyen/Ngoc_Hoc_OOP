@@ -56,7 +56,7 @@ public class Information {
 	public static List<String> getList(File file) throws Exception{
 		/*
 		 * Đầu vào: file mẫu câu
-		 * Đầu ra: 1 biến tham chiếu tới 1 list các mẫu câu
+		 * Đầu ra: 1 biến tham chiếu tới 1 list các mẫu câu 
 		 */
 		List<String> list = new ArrayList<>();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
