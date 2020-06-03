@@ -1,5 +1,10 @@
 package pre_process;
-
+/**
+ * Chứa các từ quy ước dùng để mô hình câu
+ * 
+ * @author Ngốc_Học_OOP
+ *
+ */
 public interface Convention {
 	public static final String NAME_INDEX = "NameIndex";
 	public static final String STATE = "State";
