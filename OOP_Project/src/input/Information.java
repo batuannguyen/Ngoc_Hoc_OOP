@@ -15,9 +15,17 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
 public class Information {
+	/*
+	 * Bao gồm các phương thức đọc dữ liệu đầu vào từ file dữ liệu excel và file mẫu câu
+	 */
 	private static File file = new File("du_lieu_btl.xlsx");
 	
 	public static Session getRow(String nameIndex,int rowIndex) throws Exception {
+		/*
+		 * Đầu vào: Tên của một chỉ số và hàng cần đọc trong sheet dữ liệu tương ứng với chỉ số đó
+		 * Đầu ra: Trả  về 1 biến tham chiếu đến 1 đối tượng Session(phiên giao dịch ) chứa các thông tin 
+		 * về giao dịch tương ứng
+		 */
 		Session session = new Session();
 		XSSFWorkbook wb = new XSSFWorkbook(file);
 		XSSFSheet sheet = wb.getSheet(nameIndex);
@@ -46,6 +54,10 @@ public class Information {
 	}
 	
 	public static List<String> getList(File file) throws Exception{
+		/*
+		 * Đầu vào: file mẫu câu
+		 * Đầu ra: 1 biến tham chiếu tới 1 list các mẫu câu
+		 */
 		List<String> list = new ArrayList<>();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
 		int flag = 1;
