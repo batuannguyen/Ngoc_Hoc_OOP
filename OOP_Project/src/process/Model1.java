@@ -10,6 +10,11 @@ import java.util.Set;
 
 
 import pre_process.*;
+/**
+ * Chứa các luật để mô hình câu
+ * @author Ngốc_Học_OOP
+ *
+ */
 public class Model1 extends Sentences  implements Modeling{
 
 	@Override
@@ -68,31 +73,9 @@ public class Model1 extends Sentences  implements Modeling{
 		}
 		return buffer.toString();
 	}
+	
+	
+	
 
-	@Override
-	public void add() {
-		// TODO Auto-generated method stub
-		try {
-			List<String> list = Information.getList(new File("tang.txt"));
-			for (String s:list) {
-				addSentences(modeling(s));
-			}
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
-	public List<String> xuat(int num){
-		List<String> list = new ArrayList<>();
-		Set<Integer> set = new HashSet<>();
-		Random rd = new Random();
-		int n = size();
-		while (set.size()<num) {
-			set.add(rd.nextInt(n));
-		}
-		for (int i:set) {
-			list.add(getIndex(i));
-		}
-		return list;
-	}
 	
 }
