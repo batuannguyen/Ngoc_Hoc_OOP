@@ -1,11 +1,16 @@
 package process;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import input.*;
-import pre_process.Export;
-
+import pre_process.*;
+/**
+ * Chứa các luật để xuất câu dựa vào câu mô hình
+ * @author Ngốc_Học_OOP
+ *
+ */
 public class Export1 extends Sentences implements Export {
 	private String process(String st, String s,String replace) {
 		StringBuffer buf = new StringBuffer();
@@ -94,22 +99,29 @@ public class Export1 extends Sentences implements Export {
 		
 		return null;
 	}
-
 	@Override
-	public List<String> output(List<String> list) {
+	public void export1() {
 		// TODO Auto-generated method stub
-		List<String> kq = new ArrayList<String>();
-		for (String st:list) {
-			kq.add(replace(st));
+		Modeling model = new Model1();
+		try {
+			List<String> list = Information.getList(new File("tang.txt"));
+			for (String st:list) {
+				listSentences.add(replace(model.modeling(st)));
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		return kq;
 	}
 	public static void main(String[] args) {
-		Model1 model = new Model1();
-		Export1 export = new Export1();
-		model.add();
-		for (String s:export.output(model.xuat(7))) {
-			System.out.println(s);
+		Export1 exp = new Export1();
+		exp.export1();
+		for (String st:Sentences.listSentences) {
+			System.out.println(st);
 		}
 	}
+	
+	
+
+	
 }
