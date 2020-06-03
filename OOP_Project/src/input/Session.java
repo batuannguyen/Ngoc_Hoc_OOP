@@ -1,5 +1,10 @@
 package input;
-
+/**
+ * Chứa các thông tin về 1 phiên giao dịch
+ * 
+ * @author Ngốc_Học_OOP
+ *
+ */
 public class Session {//Phien giao dich
 	private String nameIndex;//Ten chi so
 	private String day;//Ngay giao dich
