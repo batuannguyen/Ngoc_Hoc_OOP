@@ -13,19 +13,26 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-
+/**
+ * <p> Chứa các phương thức để đọc dữ liệu đầu vào </p>
+ * <p> Bao gồm 2 hàm: 1 hàm đọc file dữ liệu và 1 hàm đọc file mẫu câu</p>
+ * 
+ * 
+ * @author Ngốc_Học_OOP
+ *
+ */
 public class Information {
-	/*
-	 * Bao gồm các phương thức đọc dữ liệu đầu vào từ file dữ liệu excel và file mẫu câu
-	 */
 	private static File file = new File("du_lieu_btl.xlsx");
-	
+	/**
+	 * <h1> Hàm đọc dữ liệu từ file excel </h1>
+	 * <p> Đầu vào: Tên của chỉ số và hàng trong sheet dữ liêu của chỉ số đó </p>
+	 * <p> Đầu ra: Một đối tượng Session chứa các thông tin về phiên giao dịch </p>
+	 * @param nameIndex
+	 * @param rowIndex
+	 * @return Session session
+	 * @throws Exception
+	 */
 	public static Session getRow(String nameIndex,int rowIndex) throws Exception {
-		/*
-		 * Đầu vào: Tên của một chỉ số và hàng cần đọc trong sheet dữ liệu tương ứng với chỉ số đó
-		 * Đầu ra: Trả  về 1 biến tham chiếu đến 1 đối tượng Session(phiên giao dịch ) chứa các thông tin 
-		 * về giao dịch tương ứng
-		 */
 		Session session = new Session();
 		XSSFWorkbook wb = new XSSFWorkbook(file);
 		XSSFSheet sheet = wb.getSheet(nameIndex);
@@ -52,12 +59,17 @@ public class Information {
 		wb.close();
 		return session;
 	}
+	/**
+	 * <h1> Hàm đọc file mẫu câu đưa vào </h1>
+	 * <p> Đầu vào: 1 file mẫu câu </p>
+	 * <p> Đầu ra: 1 list chứa các câu trong file mẫu câu đó </p>
+	 * 
+	 * @param file
+	 * @return List<String> list
+	 * @throws Exception
+	 */
 	
 	public static List<String> getList(File file) throws Exception{
-		/*
-		 * Đầu vào: file mẫu câu
-		 * Đầu ra: 1 biến tham chiếu tới 1 list các mẫu câu 
-		 */
 		List<String> list = new ArrayList<>();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
 		int flag = 1;
